@@ -79,7 +79,7 @@ python manage.py runserver
 #
 # [ 6 ] В project/project/urls.py -> | 6 | path('pages/', include('django.contrib.flatpages.urls')), # <- Для работы приложения Flatpages
 #   
-# [ 7 ] В project -> New -> File -> templates/flatpages/defauld.html
+# [ 7 ] В project -> New -> File -> templates/flatpages/default.html
 #
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
