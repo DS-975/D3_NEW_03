@@ -1,86 +1,65 @@
-# Как я создавал это проект
+# region todo: Создаём виртуальное окружение (venv)
+# python -m venv venv
+# todo: Активируем виртуальное окружение
+# .\venv\Scripts\activate
+# endregion
+
+# region todo: Устанавливаем библиотеку Django
+# pip install django
+# endregion
+
+# region todo: Запуски сервера
+# python manage.py runserver
+# endregion
+
+# region todo: Создаём новые миграции
+# python manage.py makemigrations
+# endregion
+
+# region todo: Применяем миграции
+# python manage.py migrate
+# endregion
+
+# region todo: Создание админки
+# todo: Применяем миграции
+# python manage.py migrate
+# todo: в Terminal пишем команду
+# python manage.py createsuperuser
+# | Username: admin |
+# | Password: admin |
+# todo: Запуски сервера
+# python manage.py runserver
+# endregion
+
+# region # todo: Создал новый Django-проект
+# django-admin startproject project
+# endregion
+
+# region # todo: Создал приложение news
+# todo: Переходим в папку project
+# cd .\project
+# todo: Создал приложение news
+# python manage.py startapp news
+# endregion
+
+# region todo: Установка и настройка приложение Flatpages | Документация - > https://docs.djangoproject.com/en/3.1/ref/contrib/flatpages/
+# todo: [ 1 ] В project/project/settings.py -> INSTALLED_APPS | 29 | 'django.contrib.sites', # <- Для работы приложения Flatpages
+#                                                             | 30 | 'django.contrib.flatpages', # <- Для работы приложения Flatpages
 #
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# todo: [ 2 ] В project/project/settings.py -> MIDDLEWARE | 41 | 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # <- Для работы приложения Flatpages
 #
-# Создаём виртуальное окружение
-python -m venv venv
+# todo: [ 3 ] В project/project/settings.py -> | 44 | SITE_ID = 1 # <- Для работы приложения Flatpages
 #
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# todo: [ 4 ] В project/project/settings.py -> |  2 | import os # <- импортируем os для работы приложения Flatpages
+#                                              | 51 | 'DIRS': [os.path.join(BASE_DIR, 'templates')], # <- Для работы приложения Flatpages
 #
-# Активируем виртуальное окружение
-.\venv\Scripts\activate
+# todo: [ 5 ] В project/project/urls.py -> | include | 2 | from django.urls import path, include # include <- Для работы приложения Flatpages
 #
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Устанавливаем библиотеки из requirements.txt (Django)
-pip install -r requirements.txt
-#
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Создание админки 21 - 65
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Создал новый Django-проект
-django-admin startproject project
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Переходим в папку project
-cd .\project
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# todo: [ 6 ] В project/project/urls.py -> | 6 | path('pages/', include('django.contrib.flatpages.urls')), # <- Для работы приложения Flatpages
 #   
-# Создал приложение news
-python manage.py startapp news
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Запуски сервера
-python manage.py runserver
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Создаём новые миграции
-python manage.py makemigrations
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Применяем миграции
-python manage.py migrate
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Создаём админку
-#
-python manage.py createsuperuser
-#
-# Username: admin
-# Password: admin
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Запуски сервера
-python manage.py runserver
-#
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# ↓ + ↓ Установил приложение Flatpages | Документация - > https://docs.djangoproject.com/en/3.1/ref/contrib/flatpages/
-# [ 1 ] В project/project/settings.py -> INSTALLED_APPS | 29 | 'django.contrib.sites', # <- Для работы приложения Flatpages
-#                                                       | 30 | 'django.contrib.flatpages', # <- Для работы приложения Flatpages
-#
-# [ 2 ] В project/project/settings.py -> MIDDLEWARE | 41 | 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # <- Для работы приложения Flatpages
-#
-# [ 3 ] В project/project/settings.py -> | 44 | SITE_ID = 1 # <- Для работы приложения Flatpages
-#
-# [ 4 ] В project/project/settings.py -> |  2 | import os # <- импортируем os для работы приложения Flatpages
-#                                        | 51 | 'DIRS': [os.path.join(BASE_DIR, 'templates')], # <- Для работы приложения Flatpages
-#
-# [ 5 ] В project/project/urls.py -> | include | 2 | from django.urls import path, include # include <- Для работы приложения Flatpages
-#
-# [ 6 ] В project/project/urls.py -> | 6 | path('pages/', include('django.contrib.flatpages.urls')), # <- Для работы приложения Flatpages
-#   
-# [ 7 ] В project -> New -> File -> templates/flatpages/default.html
-#
+# todo: [ 7 ] В project -> New -> File -> templates/flatpages/default.html
+# endregion
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # ↓ + ↓ B project/news/models.py
@@ -229,5 +208,5 @@ python manage.py runserver
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # Запускаем окно командной строки
-python manage.py shell
-from newapp.models import *
+# python manage.py shell
+# from newapp.models import *
