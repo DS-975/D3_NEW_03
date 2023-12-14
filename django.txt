@@ -65,14 +65,15 @@ python manage.py runserver
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # ↓ + ↓ Установил приложение Flatpages | Документация - > https://docs.djangoproject.com/en/3.1/ref/contrib/flatpages/
-# [ 1 ] В project/project/settings.py -> INSTALLED_APPS | 42 | 'django.contrib.sites', # <- Для работы приложения Flatpages
-#                                                       | 43 | 'django.contrib.flatpages', # <- Для работы приложения Flatpages
+# [ 1 ] В project/project/settings.py -> INSTALLED_APPS | 29 | 'django.contrib.sites', # <- Для работы приложения Flatpages
+#                                                       | 30 | 'django.contrib.flatpages', # <- Для работы приложения Flatpages
 #
-# [ 2 ] В project/project/settings.py -> MIDDLEWARE | 55 | 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # <- Для работы приложения Flatpages
+# [ 2 ] В project/project/settings.py -> MIDDLEWARE | 41 | 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # <- Для работы приложения Flatpages
 #
-# [ 3 ] В project/project/settings.py -> | 58 | SITE_ID = 1 # <- Для работы приложения Flatpages
+# [ 3 ] В project/project/settings.py -> | 44 | SITE_ID = 1 # <- Для работы приложения Flatpages
 #
-# [ 4 ] В project/project/settings.py -> | 56 | 'DIRS': [os.path.join(BASE_DIR, 'templates')], # <- Для работы приложения Flatpages
+# [ 4 ] В project/project/settings.py -> |  2 | import os # <- импортируем os для работы приложения Flatpages
+#                                        | 51 | 'DIRS': [os.path.join(BASE_DIR, 'templates')], # <- Для работы приложения Flatpages
 #
 # [ 5 ] В project/project/urls.py -> | include | 2 | from django.urls import path, include # include <- Для работы приложения Flatpages
 #
